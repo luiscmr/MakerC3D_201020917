@@ -18,6 +18,8 @@ import java_cup.runtime.Symbol;
 %column
 %full
 
+//Operadores Aritmeticos
+
 MAS		= "+"
 MENOS		= "-"
 MULT       	= "*"
@@ -25,6 +27,22 @@ DIV             = "/"
 POT             = "^"
 PAR_IZQ         = "("
 PAR_DER         = ")"
+
+//Operadores Logicos
+
+OR              = "||"
+AND             = "&&"
+NOT             = "!"
+
+//Operadores Relacionales
+
+
+MAYOR           = ">"
+MENOR           = "<"
+MAYORQUE        = ">="
+MENORQUE        = "<="
+IGUAL           = "=="
+DISTINTO        = "!="
 
 ID              = [A-Za-z][_0-9A-Za-z]*
 ENTERO          = [0-9]+
@@ -45,6 +63,15 @@ ENTER   = [\ \n]
 <YYINITIAL> {POT}	    { return new Symbol(sym.POT, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_IZQ}	    { return new Symbol(sym.PAR_IZQ, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_DER}	    { return new Symbol(sym.PAR_DER, yyline, yycolumn, null); }
+<YYINITIAL> {MAYOR}	    { return new Symbol(sym.MAYOR, yyline, yycolumn, null); }
+<YYINITIAL> {MENOR}	    { return new Symbol(sym.MENOR, yyline, yycolumn, null); }
+<YYINITIAL> {MAYORQUE}	    { return new Symbol(sym.MAYORQUE, yyline, yycolumn, null); }
+<YYINITIAL> {MENORQUE}	    { return new Symbol(sym.MENORQUE, yyline, yycolumn, null); }
+<YYINITIAL> {IGUAL}	    { return new Symbol(sym.IGUAL, yyline, yycolumn, null); }
+<YYINITIAL> {DISTINTO}	    { return new Symbol(sym.DISTINTO, yyline, yycolumn, null); }
+<YYINITIAL> {AND}	    { return new Symbol(sym.AND, yyline, yycolumn, null); }
+<YYINITIAL> {OR}	    { return new Symbol(sym.OR, yyline, yycolumn, null); }
+<YYINITIAL> {NOT}	    { return new Symbol(sym.NOT, yyline, yycolumn, null); }
 
 <YYINITIAL> {SPACE}     { /*Espacios en blanco, ignorados*/ }
 <YYINITIAL> {ENTER}     { /*Saltos de linea, ignorados*/}
